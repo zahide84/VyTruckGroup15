@@ -8,6 +8,6 @@ public class Test1 {
     // write smth
     // Ganjina wrote smth
     //Alex changes
-    //Alex changes 2
+
 
 }
