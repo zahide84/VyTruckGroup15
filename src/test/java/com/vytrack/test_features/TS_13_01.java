@@ -92,15 +92,16 @@ public class TS_13_01 {
         Assert.assertTrue(allModelNames.size() >= 4);
 
 //2. Verify “Range Rover” model is displayed
-        WebElement rangeRover = driver.findElement(By.xpath("//td[.='RANGE ROVER edit']"));
+        WebElement rangeRover = driver.findElement(By.xpath("//td[.='RANGE']"));
+        Thread.sleep(3000);
         Assert.assertTrue(rangeRover.isDisplayed());
 
 //3. Click and verify the “RANGE ROVER edit Land Rover edit” header is displayed
         rangeRover.click();
         Thread.sleep(3000);
-        WebElement pageHeader = driver.findElement(By.xpath("//h1[.='RANGE ROVER edit Land Rover edit']"));
+        WebElement pageHeader = driver.findElement(By.cssSelector(".user-name"));
         String actualHeader = pageHeader.getText();
-        String expectedHeader = "RANGE ROVER edit Land Rover edit";
+        String expectedHeader = "RANGE Land Rover";
         Assert.assertEquals(actualHeader, expectedHeader);
         driver.navigate().back();
 
