@@ -5,9 +5,10 @@ import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class TS_9 extends TestBase {
 
@@ -24,7 +25,7 @@ public class TS_9 extends TestBase {
         driver.findElement(By.partialLinkText("Vehicles Fuel Logs")).click();
 
         //4. verify that header "Vehicle Fuel Logs" is displayed
-        WebDriverWait wait = new WebDriverWait(driver,10);
+
         wait.until(ExpectedConditions.titleContains("Vehicle Fuel Logs - Entities - System - Car - Entities - System"));
 
         WebElement header = driver.findElement(By.xpath("//h1[@class='oro-subtitle']"));
@@ -38,6 +39,7 @@ public class TS_9 extends TestBase {
         VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_1_LOGIN(), getPASSWORD());
 
         //2. navigate and click on the "Fleet" bottom dropdown module
+        wait.withTimeout(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
 
         //3. in the "Fleet" dropdown module navigate and click on the "Vehicles fuel logs"
@@ -57,7 +59,8 @@ public class TS_9 extends TestBase {
         VyTrack_Utilities.vyTrackLogin(driver, getSTORE_MANAGER_1_LOGIN(), getPASSWORD());
 
         //2. navigate and click on the "Fleet" bottom dropdown module
-        driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
+       WebElement fleet = driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]"));
+       fleet.click();
 
         //3. in the "Fleet" dropdown module navigate and click on the "Vehicles fuel logs"
         driver.findElement(By.partialLinkText("Vehicles Fuel Logs")).click();
