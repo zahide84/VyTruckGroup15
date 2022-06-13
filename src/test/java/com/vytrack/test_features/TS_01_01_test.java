@@ -1,7 +1,7 @@
-package com.vytrack.test_features.test_scenario_0101;
+package com.vytrack.test_features;
 
-import com.vytrack.test_features.utilities.VyTrackLogin;
-import com.vytrack.test_features.utilities.WebDriverFactory;
+import com.vytrack.utilities.VyTrack_Utilities;
+import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 //Author: Alexey Pak
-public class TestCase01 {
+public class TS_01_01_test {
     WebDriver driver;
     @BeforeTest
     public void setUp(){
@@ -27,7 +27,7 @@ public class TestCase01 {
 
 
         //1. After logging into the website verify the title name is "Dashboard"
-        VyTrackLogin.loginVytrack(driver,"user42","UserUser123");
+        VyTrack_Utilities.vyTrackLogin(driver,"user42","UserUser123");
         Thread.sleep(15000);
         String actualDashboardTitle = driver.getTitle();
         String expectedDashboardTitle = "Dashboard";

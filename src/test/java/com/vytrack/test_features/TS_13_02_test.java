@@ -1,6 +1,5 @@
 package com.vytrack.test_features;
 
-import com.google.common.base.Verify;
 import com.vytrack.test_features.base.TestBase;
 import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
@@ -8,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TS_13_02 extends TestBase {
+public class TS_13_02_test extends TestBase {
     @Test
     public void test13_02_1() throws InterruptedException {
         //        1. After logging into the website verify the title name is "Dashboard
