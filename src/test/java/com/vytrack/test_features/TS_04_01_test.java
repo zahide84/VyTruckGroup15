@@ -1,4 +1,4 @@
-package com.vytrack.TS06_03;
+package com.vytrack.test_features;
 
 
 import com.vytrack.base.TestBase;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TS4_DeleteVehicleCost extends TestBase {
+public class TS_04_01_test extends TestBase {
 
     @Test
     public void deleteCost() throws InterruptedException {

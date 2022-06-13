@@ -1,12 +1,13 @@
-package com.vytrack.test_features.test_scenario_0201;
+package com.vytrack.test_features;
 
-import com.vytrack.test_features.base.TestBase;
+import com.vytrack.base.TestBase;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 //Author: Alexey Pak
-public class TestCase02 extends TestBase {
+public class TS_02_02_test extends TestBase {
     @Test
     public void tc02012() throws InterruptedException {
         //1. Login into the website, the title is "Dashboard"

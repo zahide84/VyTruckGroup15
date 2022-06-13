@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TS_9 extends TestBase {
+public class TS_09_test extends TestBase {
 
     @Test
     public void test09_01(){
