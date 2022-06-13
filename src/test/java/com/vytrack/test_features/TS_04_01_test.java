@@ -24,7 +24,7 @@ public class TS_04_01_test extends TestBase {
         driver.findElement(By.partialLinkText("Vehicle Costs")).click();
         Thread.sleep(5000);
 
-//        3. Locate and click on "Summer Tires" row item
+//        3. Locate and click on "Road Assistance" row item
         driver.findElement(By.xpath("//td[contains(text(), 'Road Assistance')]")).click();
         Thread.sleep(5000);
 
