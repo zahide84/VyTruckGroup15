@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TS_04_01_test extends TestBase {
+public class TS_06_01_test extends TestBase {
 
     @Test
     public void deleteCost() throws InterruptedException {
