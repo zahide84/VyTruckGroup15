@@ -25,7 +25,7 @@ public class TS_08_Test extends TestBase {
         driver.findElement(By.linkText("Vehicle Contracts")).click();
         Thread.sleep(3000);
 
-        // 4.Verify to see all "Vehicle contract " on the grid.
+        // 4.Verify to see all "Vehicle contract " on the grid
 
         //Thread.sleep(5000);
         //WebElement entitySaved =   driver.findElement(By.partialLinkText("Vehicle Contract"));
