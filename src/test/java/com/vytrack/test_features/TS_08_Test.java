@@ -3,45 +3,73 @@ package com.vytrack.test_features;
 import com.google.common.base.Verify;
 import com.vytrack.base.TestBase;
 import com.vytrack.utilities.VyTrack_Utilities;
+import com.vytrack.utilities.WebDriverFactory;
 import org.apache.hc.core5.annotation.Contract;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class TS_08_Test extends TestBase {
-    @Test
-    public void TS_08_Test() throws InterruptedException {
 
+    @Test(priority = 1)
+    public void UserStory_08() throws InterruptedException {
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-         // 1.Use on the https://qa2.vytrack.com/ pace.
-        VyTrack_Utilities.vyTrackLogin(driver, getTRUCK_DRIVER_1_LOGIN(), getPASSWORD());
+        driver.get("https://qa2.vytrack.com/user/login");
+        driver.findElement(By.id("prependedInput")).sendKeys("storemanager79");
+        driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123");
+        driver.findElement(By.id("_submit")).click();
         Thread.sleep(3000);
-           // 2.navigate and click on the "Fleet" bottom dropdown module.
-        driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
-        Thread.sleep(3000);
-           //3. in  the "Fleet" dropdownmodule navigate and click on the "Vehicle Contract ".
-        driver.findElement(By.linkText("Vehicle Contracts")).click();
-        Thread.sleep(3000);
+
+//        1. After logging into the website verify the title name is "Dashboard"
+        String actualTitle = driver.getTitle();
+        String expectedTitle = "Dashboard";
+
+        Assert.assertEquals(actualTitle, expectedTitle, "Title Verification Failed");
+
+//        2. Click on "Fleet" dropdown button
+        WebElement fleetDropdownBtn = driver.findElement(By.xpath("(//span[contains(@class, 'title-level-1')])[2]"));
+        fleetDropdownBtn.click();
+        Thread.sleep(2000);
+
+        //3. in  the "Fleet" dropdown module navigate and click on the "Vehicle Contract ".
+        WebElement vehiclesContract = driver.findElement(By.xpath("//span[.='Vehicle Contracts']"));
+        vehiclesContract.click();
+        Thread.sleep(2000);
 
         // 4.Verify to see all "Vehicle contract " on the grid
+        String actualTitle1 = driver.getTitle();
+        String expectedTitle1 = "All - Vehicle Contract";
 
-        //Thread.sleep(5000);
-        //WebElement entitySaved =   driver.findElement(By.partialLinkText("Vehicle Contract"));
+        Assert.assertTrue(actualTitle1.contains(expectedTitle1));
+        Thread.sleep(1000);
 
-       // String actualMessage = entitySaved.getText();
-        //String expectedMessage = "Vehicle contract";
-        //Assert.assertEquals(actualMessage,expectedMessage,"Messages do not match!");
-
-        //5. Click the " create Vahicle Contract " .
-
+        //5. Click the " Create Vahicle Contract" button  " .
+        WebElement createVehiclesContract = driver.findElement(By.xpath("//a[contains(@class,'btn main-group')] "));
+        createVehiclesContract.click();
+        Thread.sleep(2000);
 
         //6.Verify the users "Create Contract"  button.
-            //7.Verify the click "Cancel" button .
-           // 8.Verify the click "edit or delete "button.
-            //9.Verify the click on "Grid Setting " and than verify  " click and  reset" button
+        String actualTitle2 = driver.getTitle();
+        String expectedTitle2 = "Create Vehicle Contract";
 
+        Assert.assertTrue(actualTitle2.contains(expectedTitle2));
+        Thread.sleep(2000);
+
+         //7.Verify the click "Cancel" button .
+        WebElement cancelBtn = driver.findElement(By.xpath("//a[contains(@class,'btn back icons')]"));
+        cancelBtn.click();
+        Thread.sleep(2000);
+
+
+driver.quit();
     }
 
 
