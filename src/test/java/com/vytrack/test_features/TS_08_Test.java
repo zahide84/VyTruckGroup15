@@ -63,7 +63,7 @@ public class TS_08_Test extends TestBase {
         Assert.assertTrue(actualTitle2.contains(expectedTitle2));
         Thread.sleep(2000);
 
-         //7.Verify the click "Cancel" button .
+         //7.Verify the click "Cancel" button...
         WebElement cancelBtn = driver.findElement(By.xpath("//a[contains(@class,'btn back icons')]"));
         cancelBtn.click();
         Thread.sleep(2000);
